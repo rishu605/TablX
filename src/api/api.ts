@@ -12,7 +12,8 @@ const getProjectDetailsFromApi = async () => {
         }
         return data
     } catch(err) {
-        console.error("Failed to get project details")
+        console.error("Failed to get project details", err)
+        throw err
     }
 }
 
