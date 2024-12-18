@@ -1,4 +1,4 @@
-# SaaS Labs Project
+# TablX
 
 This project is a web application built using modern web development technologies. The application includes features such as project details display and pagination. The project is set up with a robust testing environment using Jest and React Testing Library.
 
