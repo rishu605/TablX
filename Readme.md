@@ -1,49 +1,50 @@
-# Frontend Assignment
+# React + TypeScript + Vite
 
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Assignment
+Currently, two official plugins are available:
 
-You are required to fetch the details of the highly-rated kickstarter projects by implementing an AJAX call to their APIs.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Use the web API (link : https://raw.githubusercontent.com/saaslabsco/frontend-assignment/refs/heads/master/frontend-assignment.json) ) to fetch the details of specific projects.
+## Expanding the ESLint configuration
 
-## Minimum Requirements
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-1. Create a table and list the following three attributes for all the projects:
-    * S.No.
-    * Percentage funded
-    * Amount pledged
+- Configure the top-level `parserOptions` property like this:
 
-1. Ensure that the UI is aesthetically pleasing to gain extra points.
-1. Implement pagination with maximum 5 records per page.
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
 
-### Expected Output format
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-| **S.No.** | **Percentage funded** | **Amount pledged** |
-|-----------|-----------------------|--------------------|
-| 0         | 186                   | 15283              |
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
 
-
-## Good to have
-
-1. Unit tests.
-1. Accessibility.
-
-
-## Steps for submission
-
-1. Fork this repo.
-1. Do changes to the above assignment.
-1. Email the assignment back to us with:
-    1. Link of the open source repo.
-    1. Link of the assignment hosted online. (You can use any free tools to host this assignment, eg. vercel, netlify or heroku). It should be accessible online for atleast 7 days.
-
-
-## Frameworks Allowed
-1. React/Vanilla JS for JavaScript
-1. No framework for CSS. Only Raw CSS is allowed.
-
-## Note
-
-1. Result on platforms like codesandbox, replit are not accepted. 
-1. Private unaccessible links will lead to rejection.
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
+```
