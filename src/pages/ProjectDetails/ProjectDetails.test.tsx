@@ -1,7 +1,7 @@
 
 import { render, screen } from '@testing-library/react';
 import ProjectDetails from './ProjectDetails';
-import { getProjectDetailsFromApi } from '../api/api';
+import { getProjectDetailsFromApi } from '../../api/api';
 
 // Mock the API call
 jest.mock('../api/api', () => ({
