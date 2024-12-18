@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, Fragment } from "react"
 import { getProjectDetailsFromApi } from "../../api/api"
 import "./Table.css"
 
@@ -16,6 +16,7 @@ const Table: React.FC<TableProps> = () => {
     const [currentPageGroup, setCurrentPageGroup] = useState(0)
     const recordsPerPage = 5
     const pagesPerGroup = 5
+    const [err, setErr] = useState<string>("")
 
     useEffect(() => {
         const fetchProjectDetails = async () => {
@@ -23,6 +24,7 @@ const Table: React.FC<TableProps> = () => {
                 const apiData = await getProjectDetailsFromApi()
                 setProjectDetails(apiData)
             } catch (error) {
+                setErr("Failed to fetch project details")
                 console.error("Failed to fetch project details:", error)
             }
         }
@@ -103,8 +105,16 @@ const Table: React.FC<TableProps> = () => {
     return (
         <main className="table-container">
             <h2 role="heading" aria-level={2}>Project Details</h2>
-            {renderTable()}
-            {renderPagination()}
+            {err ? (
+                <div role="alert" className="error-message">
+                    {err}
+                </div>
+            ): (
+                <Fragment>
+                    {renderTable()}
+                    {renderPagination()}
+                </Fragment>
+            )}
         </main>
     )
 }

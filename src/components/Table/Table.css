@@ -77,3 +77,15 @@
     color: #ffffff;
     border: 1px solid #009879;
 }
+.error-message {
+    color: #ffffff;
+    background-color: #e74c3c; /* Soft red for error indication */
+    border: 1px solid #c0392b; /* Darker red border for subtle emphasis */
+    border-radius: 5px;
+    padding: 12px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+}

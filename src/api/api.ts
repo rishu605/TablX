@@ -1,5 +1,5 @@
 const getProjectDetailsFromApi = async () => {
-    const apiUrl = "https://raw.githubusercontent.com/saaslabsco/frontend-assignment/refs/heads/master/frontend-assignment.json"
+    const apiUrl = "htts://raw.githubusercontent.com/saaslabsco/frontend-assignment/refs/heads/master/frontend-assignment.json"
     try {
         const response = await fetch(apiUrl)
         if(!response) {
