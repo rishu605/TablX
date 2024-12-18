@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import App from './App';
 
 // Mock the ProjectDetails component
-jest.mock('./pages/ProjectDetails', () => () => <div>Mocked ProjectDetails Component</div>);
+jest.mock('./pages/ProjectDetails/ProjectDetails.tsx', () => () => <div>Mocked ProjectDetails Component</div>);
 
 describe('App Component', () => {
   it('should match the snapshot', () => {

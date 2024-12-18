@@ -4,12 +4,12 @@ import ProjectDetails from './ProjectDetails';
 import { getProjectDetailsFromApi } from '../../api/api';
 
 // Mock the API call
-jest.mock('../api/api', () => ({
+jest.mock('../../api/api', () => ({
   getProjectDetailsFromApi: jest.fn(),
 }));
 
 // Mock the Table component
-jest.mock('../components/Table', () => () => <div>Mocked Table Component</div>);
+jest.mock('../../components/Table/Table.tsx', () => () => <div>Mocked Table Component</div>);
 
 describe('ProjectDetails Component', () => {
   it('should match the snapshot', async () => {

@@ -8,6 +8,7 @@ export default {
   },
   moduleNameMapper: {
     '\\.(css|less)$': 'identity-obj-proxy',
+    '^@api(.*)$': '<rootDir>/src/api$1'
   },
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],

@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table Component matches the snapshot 1`] = `
+<div>
+  <div
+    class="table-container"
+  >
+    <h2
+      role="heading"
+    >
+      Project Details
+    </h2>
+    <table
+      class="styled-table"
+      role="table"
+    >
+      <thead>
+        <tr
+          role="row"
+        >
+          <th
+            class="col-width-small"
+          >
+            S.No.
+          </th>
+          <th>
+            Percentage funded
+          </th>
+          <th>
+            Amount pledged
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+    <div
+      class="pagination"
+    >
+      <button
+        disabled=""
+        role="button"
+      >
+        &lt;
+      </button>
+      <button>
+        &gt;
+      </button>
+    </div>
+  </div>
+</div>
+`;

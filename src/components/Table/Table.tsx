@@ -55,21 +55,21 @@ const Table: React.FC<TableProps> = () => {
         const currentPageDetails = projectDetails.slice((currentPage - 1) * recordsPerPage, currentPage * recordsPerPage)
         return currentPageDetails
             .map(item => (
-                <tr key={item["s.no"]}>
-                    <td className="col-width-small">{item["s.no"]}</td>
-                    <td>{item["percentage.funded"]}</td>
-                    <td>{item["amt.pledged"]}</td>
+                <tr role="row" key={item["s.no"]}>
+                    <td role="cell" className="col-width-small">{item["s.no"]}</td>
+                    <td role="cell">{item["percentage.funded"]}</td>
+                    <td role="cell">{item["amt.pledged"]}</td>
                 </tr>
             ))
     }
 
     const renderTable = () => (
-        <table className="styled-table">
+        <table role="table" className="styled-table" aria-label="Project details">
             <thead>
-                <tr>
-                    <th className="col-width-small">S.No.</th>
-                    <th>Percentage funded</th>
-                    <th>Amount pledged</th>
+                <tr role="row">
+                    <th scope="col" className="col-width-small">S.No.</th>
+                    <th scope="col">Percentage funded</th>
+                    <th scope="col">Amount pledged</th>
                 </tr>
             </thead>
             <tbody>
@@ -85,7 +85,7 @@ const Table: React.FC<TableProps> = () => {
 
         return (
             <div className="pagination">
-                <button disabled={currentPage === 1} onClick={handlePreviousPageGroup}>{"<"}</button>
+                <button role="button" aria-label="Previous Page/Group" disabled={currentPage === 1} onClick={handlePreviousPageGroup}>{"<"}</button>
                 {Array.from({ length: endPage - startPage + 1 }, (_, index) => (
                     <button
                         key={startPage + index}
@@ -95,17 +95,17 @@ const Table: React.FC<TableProps> = () => {
                         {startPage + index}
                     </button>
                 ))}
-                <button disabled={currentPage === totalPages} onClick={handleNextPageGroup}>{">"}</button>
+                <button aria-label="Next Page/Group" disabled={currentPage === totalPages} onClick={handleNextPageGroup}>{">"}</button>
             </div>
         )
     }
 
     return (
-        <div className="table-container">
-            <h2>Project Details</h2>
+        <main className="table-container">
+            <h2 role="heading" aria-level={2}>Project Details</h2>
             {renderTable()}
             {renderPagination()}
-        </div>
+        </main>
     )
 }
 
