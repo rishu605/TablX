@@ -107,7 +107,6 @@ const Table: React.FC<TableProps> = () => {
 
     const renderLoader = () => (
         <div className="loader">
-            Loading...
         </div>
     )
 
