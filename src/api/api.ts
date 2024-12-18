@@ -1,5 +1,5 @@
 const getProjectDetailsFromApi = async () => {
-    const apiUrl = "htts://raw.githubusercontent.com/saaslabsco/frontend-assignment/refs/heads/master/frontend-assignment.json"
+    const apiUrl = "https://raw.githubusercontent.com/saaslabsco/frontend-assignment/refs/heads/master/frontend-assignment.json"
     try {
         const response = await fetch(apiUrl)
         if(!response) {
@@ -12,7 +12,6 @@ const getProjectDetailsFromApi = async () => {
         }
         return data
     } catch(err) {
-        // console.error("Failed to get project details", err)
         throw err
     }
 }
