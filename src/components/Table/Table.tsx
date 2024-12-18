@@ -17,15 +17,18 @@ const Table: React.FC<TableProps> = () => {
     const recordsPerPage = 5
     const pagesPerGroup = 5
     const [err, setErr] = useState<string>("")
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         const fetchProjectDetails = async () => {
             try {
                 const apiData = await getProjectDetailsFromApi()
                 setProjectDetails(apiData)
+                setIsLoading(false)
             } catch (error) {
                 setErr("Failed to fetch project details")
                 console.error("Failed to fetch project details:", error)
+                setIsLoading(false)
             }
         }
 
@@ -102,14 +105,23 @@ const Table: React.FC<TableProps> = () => {
         )
     }
 
+    const renderLoader = () => (
+        <div className="loader">
+            Loading...
+        </div>
+    )
+
+
     return (
         <main className="table-container">
             <h2 role="heading" aria-level={2}>Project Details</h2>
-            {err ? (
+            {isLoading ? (
+                renderLoader() // Show loader if data is being fetched
+            ) : err ? (
                 <div role="alert" className="error-message">
                     {err}
                 </div>
-            ): (
+            ) : (
                 <Fragment>
                     {renderTable()}
                     {renderPagination()}

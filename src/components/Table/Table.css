@@ -89,3 +89,11 @@
     font-weight: bold;
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
 }
+
+.loader {
+    font-size: 18px;
+    color: #009879;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
