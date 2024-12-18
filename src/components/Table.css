@@ -1,6 +1,6 @@
 .table-container {
     padding: 20px;
-    max-width: 800px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
@@ -16,7 +16,7 @@
 .styled-table thead tr {
     background-color: #009879;
     color: #ffffff;
-    text-align: left;
+    text-align: center;
 }
 
 .styled-table th,
@@ -24,9 +24,22 @@
     padding: 12px 15px;
 }
 
+.styled-table tbody {
+    display: block;
+    height: 250px;
+    overflow: hidden;
+}
+
+.col-width-small {
+    width: 15%;
+}
+
 .styled-table tbody tr {
     background-color: #242424;
     color: #ffffff;
+    height: 50px;
+    display: flex;
+    text-align: center;
 }
 
 .styled-table tbody tr:nth-of-type(even) {
@@ -36,4 +49,31 @@
 
 .styled-table tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
+}
+
+.styled-table thead,
+.styled-table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background-color: #242424;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #009879;
+    color: #ffffff;
+    border: 1px solid #009879;
 }
