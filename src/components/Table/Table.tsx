@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { getProjectDetailsFromApi } from "../api/api"
+import { getProjectDetailsFromApi } from "../../api/api"
 import "./Table.css"
 
 interface TableProps {}
